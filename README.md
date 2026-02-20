@@ -17,5 +17,45 @@ A Previsao_da_Selic realiza automaticamente:
 
 O objetivo é simular uma plataforma real de dados utilizada em instituições financeiras.
 
-##🏗️ Arquitetura da Solução
+## 🏗️ Arquitetura da Solução
+
 ![Texto alternativo](pictures/Arquitetura.drawio.png)
+
+## 🧱 Arquitetura de Dados
+A arquetura de dados do projeto utiliza Arquitetura de Medalhão
+
+### 🥉 Camada Bronze
+
+Armazena os dados brutos extraídos da API do Banco Central.
+Indicadores coletados:
+- Taxa SELIC
+- IPCA
+- IGPM
+- Cotação do Dólar
+
+Formato de armazenamento:
+- Arquivos Parquet
+- Dados históricos completos
+- Sem transformações
+
+### 🥈 Camada Silver
+
+Dados tratados e padronizados.
+Transformações realizadas:
+- Normalização temporal
+- Tratamento de valores ausentes
+- Padronização de frequências
+- Correção de tipos de dados
+
+### 🥇 Camada Gold
+
+Dados prontos para consumo analítico e Machine Learning.
+Inclui:
+
+- Junção dos indicadores econômicos
+- Features temporais
+- Variáveis defasadas (lags)
+- Médias móveis
+
+Dataset final para treinamento
+
