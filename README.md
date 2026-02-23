@@ -59,3 +59,59 @@ Inclui:
 
 Dataset final para treinamento
 
+## Como executar o projeto
+1. Criando containers:
+```
+  docker compose up --build -d
+```
+2. Executando o Prefect
+
+O Prefect foi escolhido como o gerenciador da pipelinde de dados.
+
+- Confirmando a versão do Prefect
+
+Abra:
+```
+  http://localhost:4200
+```
+
+Você verá a seguinte tela:
+![Texto alternativo](pictures\Prefect.png)
+
+- Confirmando o cliente python
+
+Execute o comando dentro do ambiente virtual do python:
+
+```
+  prefect version
+```
+
+Deve mostral algo como:
+
+Version: 3.x.x
+
+- Conectando cliente ao server:
+
+Execute o comando a baixo:
+
+```
+prefect config set PREFECT_API_URL=http://127.0.0.1:4200/api
+```
+
+Verifique como comando:
+
+```
+prefect config view
+```
+
+Deve aparecer algo como:
+
+PREFECT_API_URL='http://127.0.0.1:4200/api'
+
+Execute com o seguinte comando:
+
+```
+python -m ingestion.flows.bcb_daily_flow
+```
+
+3.      
