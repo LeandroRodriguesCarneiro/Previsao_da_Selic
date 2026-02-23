@@ -76,7 +76,7 @@ Abra:
 ```
 
 Você verá a seguinte tela:
-![Texto alternativo](pictures\Prefect.png)
+![Texto alternativo](pictures/Prefect.png)
 
 - Confirmando o cliente python
 
